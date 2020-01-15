@@ -1,0 +1,25 @@
+{
+  "name": "own_webpack",
+  "version": "1.0.0",
+  "description": "try to understand webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lingxiao-Zhu/own_webpack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lingxiao-Zhu/own_webpack/issues"
+  },
+  "homepage": "https://github.com/lingxiao-Zhu/own_webpack#readme",
+  "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/parser": "^7.8.3",
+    "@babel/traverse": "^7.8.3",
+    "eslint": "^6.8.0"
+  }
+}
