@@ -10,9 +10,10 @@ node lib/webpack.js
 
 ## project plan
 
-- [x] 完成对 js 代码打包。
-- [x] 引入 Tapable.js，支持插件系统。
 - [x] 梳理 webpack 源码打包流程。
+- [x] 编写支持对 js 代码打包的简单版本。
+- [x] 引入 Tapable.js，支持插件系统。
+- [x] 支持 loaders。
 
 ## project structure
 
