@@ -5,7 +5,7 @@ Learn webpack by build my own webpack
 ## usage
 
 ```javascript
-node lib/webpack.js
+node webpack.js
 ```
 
 ## project plan
@@ -18,12 +18,15 @@ node lib/webpack.js
 ## project structure
 
 ```bash
-├── lib                 # 主要目录
-│   ├── bundler.js      # 负责打包工作
-│   ├── compiler.js     # 负责流程控制
-│   ├── webpack.js      # 入口文件
-├── demo                # 存放es6的js文件
-├── plugins             # 存放自定义插件
+├── lib                     # 主要目录
+│   ├── bundler.js          # 负责打包工作
+│   ├── compilation.js      # 构建实例，模块会被加载、封存
+│   ├── compiler.js         # 负责流程控制
+│   ├── module.js           # 单个模块，包含路径和内容
+│   ├── moduleFactory.js    # 模块工厂
+├── demo                    # 存放es6的js文件
+├── plugins                 # 存放自定义插件
+├── loaders                 # 存放自定义loader
 ```
 
 ## webpack 的源码执行流程
