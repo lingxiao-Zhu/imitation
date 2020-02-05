@@ -18,15 +18,16 @@ node webpack.js
 ## project structure
 
 ```bash
-├── lib                     # 主要目录
-│   ├── bundler.js          # 负责打包工作
-│   ├── compilation.js      # 构建实例，模块会被加载、封存
-│   ├── compiler.js         # 负责流程控制
-│   ├── module.js           # 模块类，包含模块依赖和内容
-│   ├── moduleFactory.js    # 模块工厂
-├── demo                    # 存放es6的js文件
-├── plugins                 # 存放自定义插件
-├── loaders                 # 存放自定义loader
+├── lib                         # 主要目录
+│   ├── bundler.js              # 负责打包工作
+│   ├── compilation.js          # 构建实例，模块会被加载、封存
+│   ├── compiler.js             # 负责流程控制
+│   ├── normalModule.js         # JS模块类，负责JS模块的构建
+│   ├── normalmoduleFactory.js  # JS模块工厂
+│   ├── parser.js               # 解释器，生成AST，分析依赖
+├── demo                        # 存放es6的js文件
+├── plugins                     # 存放自定义插件
+├── loaders                     # 存放自定义loader
 ```
 
 ## webpack 的源码执行流程
