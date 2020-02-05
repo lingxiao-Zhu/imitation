@@ -12,11 +12,7 @@ module.exports = {
     rules: [
       {
         test: '.js',
-        loader: function() {},
-      },
-      {
-        test: '.ts',
-        loader: function() {},
+        loader: require('./loaders/demo-loader'),
       },
     ],
   },
