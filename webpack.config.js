@@ -1,8 +1,10 @@
+const path = require('path');
 const BeforeCompilePlugin = require('./plugins/BeforeCompilePlugin');
 const AfterCompilePlugin = require('./plugins/AfterCompilePlugin');
 
 module.exports = {
-  entry: '/demo/app.js',
+  context: path.join(__dirname, './demo'), // base directory
+  entry: './app.js',
   output: {
     path: '/dist',
     filename: 'bundle.js',
