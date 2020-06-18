@@ -11,23 +11,25 @@ node webpack.js
 ## project plan
 
 - [x] 梳理 webpack 源码打包流程。
-- [x] 编写支持对 js 代码打包的简单版本。
-- [x] 引入 Tapable.js，支持插件系统。
+- [x] 按照源码从零实现完整的 webpack。
+- [x] 引入 Tapable.js，支持 Plugin。
 - [x] 支持 loaders。
 
 ## project structure
 
 ```bash
+├── demo                        # 存放es6的js文件
 ├── lib                         # 主要目录
-│   ├── bundler.js              # 负责打包工作
+│   ├── chunk.js                # chunk，包含modules
 │   ├── compilation.js          # 构建实例，模块会被加载、封存
 │   ├── compiler.js             # 负责流程控制
 │   ├── normalModule.js         # JS模块类，负责JS模块的构建
 │   ├── normalmoduleFactory.js  # JS模块工厂
 │   ├── parser.js               # 解释器，生成AST，分析依赖
-├── demo                        # 存放es6的js文件
-├── plugins                     # 存放自定义插件
 ├── loaders                     # 存放自定义loader
+├── plugins                     # 存放自定义插件
+├── webpack.config.js           # webpack配置
+├── webpack.js                  # 启动打包
 ```
 
 ## webpack 的源码执行流程

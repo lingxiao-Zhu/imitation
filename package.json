@@ -1,5 +1,5 @@
 {
-  "name": "own_webpack",
+  "name": "my_webpack",
   "version": "1.0.0",
   "description": "try to understand webpack",
   "main": "index.js",
