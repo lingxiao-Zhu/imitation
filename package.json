@@ -1,21 +1,21 @@
 {
-  "name": "my_webpack",
+  "name": "imitation",
   "version": "1.0.0",
-  "description": "try to understand webpack",
-  "main": "index.js",
+  "description": "try to understand framework source code",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "node Webpack/webpack.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lingxiao-Zhu/own_webpack.git"
+    "url": "git+https://github.com/lingxiao-Zhu/imitation.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lingxiao-Zhu/own_webpack/issues"
+    "url": "https://github.com/lingxiao-Zhu/imitation/issues"
   },
-  "homepage": "https://github.com/lingxiao-Zhu/own_webpack#readme",
+  "homepage": "https://github.com/lingxiao-Zhu/imitation#readme",
   "dependencies": {
     "@babel/core": "^7.8.3",
     "@babel/parser": "^7.8.3",
