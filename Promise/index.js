@@ -1,5 +1,6 @@
 const isMyPromise = (target) => target instanceof MyPromise;
 const isFunction = (fn) => Object.prototype.toString.call(fn) === '[object Function]';
+const isThenable = (value) => value && isFunction(value.then);
 const isLength = (value) => typeof value == 'number' && value > -1 && value % 1 == 0;
 const isArrayLike = (value) => value != null && isLength(value.length) && !isFunction(value);
 
@@ -166,6 +167,73 @@ MyPromise.all = function (arr) {
         values.push(current);
       }
       i++;
+    }
+  });
+};
+
+/**
+ * 返回一个 promise，一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝。
+ * @param {Iterable} arr
+ * @returns {MyPromise}
+ */
+MyPromise.race = function (arr) {
+  if (!isArrayLike(arr)) {
+    throw new Error(`${arr} is not iterable (cannot read property Symbol(Symbol.iterator)`);
+  }
+
+  return new MyPromise((resolve, reject) => {
+    let i = 0;
+    while (i < arr.length) {
+      const current = arr[i++];
+      if (isMyPromise(current)) {
+        current.then(resolve, reject);
+      } else {
+        resolve(current);
+      }
+    }
+  });
+};
+
+/**
+ * 方法返回一个以给定值解析后的Promise 对象。如果这个值是一个 promise ，那么将返回这个 promise ；
+ * 如果这个值是thenable（即带有"then" 方法），返回的promise会“跟随”这个thenable的对象，采用它的最终状态；
+ * 否则返回的promise将以此值完成。
+ * 此函数将类promise对象的多层嵌套展平。
+ * @param {*} value
+ * @returns {MyPromise}
+ * @example MyPromise.resolve({ then: (res) => res({ then: (res) => res(1) }) })
+ */
+MyPromise.resolve = function (value) {
+  if (isMyPromise(value)) return value;
+
+  return new MyPromise((resolve, reject) => {
+    // 多层嵌套展平
+    if (isThenable(value)) {
+      try {
+        (function desThenable(value) {
+          if (!isThenable(value)) return resolve(value);
+          value.then(desThenable);
+        })(value);
+      } catch (e) {
+        reject(e);
+      }
+    } else {
+      resolve(value);
+    }
+  });
+};
+
+/**
+ * 返回一个带有拒绝原因的Promise对象。
+ * @param {*} reason
+ * @returns {MyPromise}
+ */
+MyPromise.reject = function (reason) {
+  return new MyPromise((resolve, reject) => {
+    if (isMyPromise(reason)) {
+      reason.finally(reject);
+    } else {
+      reject(reason);
     }
   });
 };
