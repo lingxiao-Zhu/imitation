@@ -26,7 +26,7 @@ node webpack.js
 │   ├── mainTemplate.js         # 主文件模版，包含__webpack_require__等方法
 │   ├── moduleTemplate.js       # 模块模版，包含 function (module, __webpack_exports__, __webpack_require__){}
 │   ├── normalModule.js         # JS模块类，负责JS模块的构建
-│   ├── normalmoduleFactory.js  # JS模块工厂
+│   ├── normalModuleFactory.js  # JS模块工厂
 │   ├── parser.js               # 解释器，生成AST，分析依赖
 ├── loaders                     # 存放自定义loader
 ├── plugins                     # 存放自定义插件
