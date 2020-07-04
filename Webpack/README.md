@@ -1,11 +1,7 @@
-# my_webpack
-
-Learn webpack by build my own webpack
-
 ## usage
 
 ```javascript
-node webpack.js
+npm run webpack
 ```
 
 ## project plan

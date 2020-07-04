@@ -6,6 +6,13 @@ JavaScript 原有的表示“集合”的数据结构，主要是数组（Array�
 
 目前所有的内置可迭代对象如下：String、Array、TypedArray、Map 和 Set，它们的原型对象都实现了 @@iterator 方法。
 
+## Plans
+
+- [x] 自定义可迭代对象
+- [ ] 实现 Thunk 函数，用于 Generator 函数自动执行
+- [ ] 实现 co 模块，用于 Generator 函数自动执行
+- [ ] 实现 Async/Await 语法糖
+
 ##  生成器流程控制
 
 ```javascript
