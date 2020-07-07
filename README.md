@@ -1,3 +1,5 @@
+![](./.screenshots/poster.jpg?raw=true)
+
 # Imitation
 
 [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/lingxiao-Zhu/imitation) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://GitHub.com/lingxiao-Zhu/imitation/master/LICENSE) ![](https://img.shields.io/badge/language-javascript-orange.svg)
@@ -19,7 +21,7 @@ $ node **/*.js
 
 ## Maintainers
 
-[@LarryZhu](https://github.com/RichardLitt)
+[@LarryZhu](https://github.com/lingxiao-Zhu)
 
 ## License
 
