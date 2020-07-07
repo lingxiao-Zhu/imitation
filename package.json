@@ -4,7 +4,8 @@
   "description": "try to understand framework source code",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "node Webpack/webpack.js"
+    "webpack": "node Webpack/webpack.js",
+    "react": "parcel React/index.html"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,8 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.8.3",
-    "cz-conventional-changelog": "3.2.0"
+    "cz-conventional-changelog": "3.2.0",
+    "parcel": "^1.12.4"
   },
   "config": {
     "commitizen": {
