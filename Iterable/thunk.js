@@ -41,7 +41,7 @@ g.next().value((err, data) => {
 });
 
 /**
- * 自动执行
+ * 基于回调函数自动执行
  * @param {Generator} gen
  */
 function run(gen) {
