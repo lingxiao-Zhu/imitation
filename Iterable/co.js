@@ -43,7 +43,7 @@ function co(gen) {
         const { done, value } = gen.next(val);
         if (done) return resolve(value);
         if (isPromise(value)) return value.then(next);
-        return next(value);
+        return value((err, v) => !err && next(v));
       })(null);
     } catch (e) {
       reject(e);

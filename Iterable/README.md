@@ -11,7 +11,7 @@ JavaScript 原有的表示“集合”的数据结构，主要是数组（Array�
 - [x] 自定义可迭代对象
 - [x] 实现 Thunk 函数，用于生成器中的回调异步自动执行
 - [x] 实现 co 模块，用于生成器中的 Promise 对象自动执行
-- [ ] 实现 Async/Await 语法糖
+- [x] 实现 Async/Await 语法糖
 
 ##  生成器流程控制
 
