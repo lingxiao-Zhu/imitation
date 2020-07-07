@@ -30,6 +30,6 @@ npm run webpack
 ├── webpack.js                  # 启动打包
 ```
 
-## webpack 的源码执行流程
+## process flow
 
 github 图挂了，挂上 [流程图](https://www.processon.com/view/link/5e254eeae4b00fbcc45d5ea8) 链接。
