@@ -32,12 +32,35 @@ function render(element, container) {
  */
 let nextUnitOfWork = null
 
+/**
+ * React doesn’t use requestIdleCallback anymore. 
+ * Now it uses the scheduler package. 
+ * But for this use case it’s conceptually the same.
+ * @param {requestIdleCallback} deadline 
+ */
 function workLoop(deadline){
-  
+  let shouldYield = false;
+  // Perform work until Scheduler asks us to yield
+  while(nextUnitOfWork && !shouldYield){
+    nextUnitOfWork = performUnitOfWork(nextUnitOfWork);
+    shouldYield = deadline.timeRemaining() < 1;
+  }
+  requestIdleCallback(workLoop)
+}
+
+requestIdleCallback(workLoop)
+
+/**
+ * 
+ * @param {*} nextUnitOfWork
+ * @returns {*} the next unit of work
+ */
+function performUnitOfWork(nextUnitOfWork) {
+  // TODO
 }
 
 const ReactDOM = {
   render,
 };
 
-export default ReactDOM;
+// export default ReactDOM;
