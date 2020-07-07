@@ -1,3 +1,26 @@
-# imitation
+# Imitation
+
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/lingxiao-Zhu/imitation) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://GitHub.com/lingxiao-Zhu/imitation/master/LICENSE) ![](https://img.shields.io/badge/language-javascript-orange.svg)
 
 Try to learn something interesting by handwriting
+
+## Table of Contents
+
+- Webpack
+- Promise/A+
+- ES6 Iterator
+- React
+
+## Usage
+
+```bash
+$ node **/*.js
+```
+
+## Maintainers
+
+[@LarryZhu](https://github.com/RichardLitt)
+
+## License
+
+[MIT](LICENSE) © Larry Zhu
