@@ -1,7 +1,17 @@
 /**
- * @desc
+ * @description
  */
 let nextUnitOfWork = null;
+
+/**
+ * @description the work in progress root
+ */
+let wipRoot = null;
+
+/**
+ * @description
+ */
+let currentRoot = null;
 
 /**
  *
@@ -10,12 +20,17 @@ let nextUnitOfWork = null;
  */
 function render(element, container) {
   // set root of the fiber tree
-  nextUnitOfWork = {
+  wipRoot = {
     dom: container,
     props: {
       children: [element],
     },
+    // We add the alternate property to every fiber.
+    // This property is a link to the old fiber,
+    // the fiber that we committed to the DOM in the previous commit phase.
+    alternate: currentRoot,
   };
+  nextUnitOfWork = wipRoot;
 }
 
 function createDOM(fiber) {
@@ -55,6 +70,11 @@ function workLoop(deadline) {
     nextUnitOfWork = performUnitOfWork(nextUnitOfWork);
     shouldYield = deadline.timeRemaining() < 1;
   }
+
+  if (!nextUnitOfWork && wipRoot) {
+    commitRoot();
+  }
+
   requestIdleCallback(workLoop);
 }
 
@@ -78,7 +98,6 @@ requestIdleCallback(workLoop);
 function performUnitOfWork(fiber) {
   // keep track of the DOM node in the fiber.dom property
   if (!fiber.dom) fiber.dom = createDOM(fiber);
-  if (fiber.parent) fiber.parent.dom.appendChild(fiber.dom);
 
   const elements = fiber.props.children;
   let index = 0;
@@ -94,7 +113,6 @@ function performUnitOfWork(fiber) {
     };
 
     if (index === 0) {
-      // set child
       fiber.child = newFiber;
     } else {
       prevSibling.sibling = newFiber;
@@ -102,6 +120,49 @@ function performUnitOfWork(fiber) {
     prevSibling = newFiber;
     index++;
   }
+
+  // Finally we search for the next unit of work.
+  // We first try with the child,
+  // then with the sibling,
+  // then with the uncle, and so on.
+  if (fiber.child) return fiber.child;
+
+  let nextFiber = fiber;
+  while (nextFiber) {
+    if (nextFiber.sibling) {
+      return nextFiber.sibling;
+    }
+    nextFiber = nextFiber.parent;
+  }
+
+  // When there's no child and no sibling, return null, workLoop will excute commitRoot()
+  return null;
+}
+
+/**
+ *
+ * @param {*} wipFiber
+ * @param {*} elements
+ */
+function reconcileChildren(wipFiber, elements) {}
+
+/**
+ * Here we recursively append all the nodes to the dom.
+ */
+function commitRoot() {
+  commitWork(wipRoot.child);
+  currentRoot = wipRoot;
+  wipRoot = null;
+}
+
+function commitWork(fiber) {
+  if (!fiber) {
+    return;
+  }
+  const domParent = fiber.parent.dom;
+  domParent.appendChild(fiber.dom);
+  commitWork(fiber.child);
+  commitWork(fiber.sibling);
 }
 
 const ReactDOM = {

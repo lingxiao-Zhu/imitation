@@ -5,7 +5,8 @@
 - [x] createElement
 - [x] render
 - [x] Concurrent Mode
-- [ ] Fibers
+- [x] Fibers
+- [x] Commit Phases
 - [ ] Reconciliation
 - [ ] Function Components
 - [ ] Hooks
