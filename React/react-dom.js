@@ -48,10 +48,20 @@ function workLoop(deadline){
   requestIdleCallback(workLoop)
 }
 
+// start first unit of work 
 requestIdleCallback(workLoop)
 
 /**
+ * To organize the units of work we’ll need a data structure: a fiber tree.
+ * We’ll have one fiber for each element and each fiber will be a unit of work.
  * 
+ * In the render we’ll create the root fiber and set it as the nextUnitOfWork. 
+ * 
+ * The rest of the work will happen on the performUnitOfWork function, 
+ * there we will do three things for each fiber:
+ * 1.add the element to the DOM
+ * 2.create the fibers for the element’s children
+ * 3.select the next unit of work
  * @param {*} nextUnitOfWork
  * @returns {*} the next unit of work
  */

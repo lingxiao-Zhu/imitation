@@ -1,17 +1,19 @@
-## usage
+# Webpack
+
+## Usage
 
 ```javascript
 npm run webpack
 ```
 
-## project plan
+## Project Plans
 
 - [x] 梳理 webpack 源码打包流程。
 - [x] 按照源码从零实现完整的 webpack。
 - [x] 引入 Tapable.js，支持 Plugin。
 - [x] 支持 loaders。
 
-## project structure
+## Project Structure
 
 ```bash
 ├── demo                        # 存放es6的js文件
@@ -30,6 +32,6 @@ npm run webpack
 ├── webpack.js                  # 启动打包
 ```
 
-## process flow
+## Process Flow
 
 github 图挂了，挂上 [流程图](https://www.processon.com/view/link/5e254eeae4b00fbcc45d5ea8) 链接。

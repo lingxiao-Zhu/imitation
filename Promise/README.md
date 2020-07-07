@@ -1,3 +1,5 @@
+# Promise
+
 ## Plans
 
 - [x] Promise
@@ -8,6 +10,6 @@
 - [x] Promise.resolve
 - [x] Promise.reject
 
-## standard
+## Standard
 
 [Promises/A+](https://promisesaplus.com/)
