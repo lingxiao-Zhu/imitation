@@ -8,7 +8,7 @@
 - [x] Fibers
 - [x] Commit Phases
 - [x] Reconciliation
-- [ ] Function Components
+- [x] Function Components
 - [ ] Hooks
 
 ## Related Article

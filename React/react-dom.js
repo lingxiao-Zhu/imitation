@@ -102,13 +102,12 @@ requestIdleCallback(workLoop);
  * @returns {*} the next unit of work
  */
 function performUnitOfWork(fiber) {
-  // the fiber.dom property may exist by diff
-  if (!fiber.dom) fiber.dom = createDOM(fiber);
-
-  const elements = fiber.props.children;
-
-  // Create fiber nodes for children
-  reconcileChildren(fiber, elements);
+  const isFunctionComponent = fiber.type instanceof Function;
+  if (isFunctionComponent) {
+    updateFunctionComponent(fiber);
+  } else {
+    updateHostComponent(fiber);
+  }
 
   // Finally we search for the next unit of work.
   // We first try with the child,
@@ -126,6 +125,26 @@ function performUnitOfWork(fiber) {
 
   // When there's no child and no sibling, return null, so workLoop will execute commitRoot()
   return null;
+}
+
+/**
+ * Function components are differents in two ways:
+ * the fiber from a function component doesn’t have a DOM node,
+ * and the children come from running the function instead of getting them directly from the props
+ * @param {*} fiber
+ */
+function updateFunctionComponent(fiber) {
+  const children = [fiber.type(fiber.props)];
+  reconcileChildren(fiber, children);
+}
+
+function updateHostComponent(fiber) {
+  if (!fiber.dom) {
+    // the fiber.dom property may exist by diff
+    fiber.dom = createDOM(fiber);
+  }
+  // Create fiber nodes for children
+  reconcileChildren(fiber, fiber.props.children);
 }
 
 /**
@@ -204,6 +223,15 @@ function updateDom(dom, prevProps, nextProps) {
       dom.removeEventListener(eventType, prevProps[name]);
     });
 
+  // Add event listeners
+  Object.keys(nextProps)
+    .filter(isEvent)
+    .filter(isNew(prevProps, nextProps))
+    .forEach((name) => {
+      const eventType = name.toLowerCase().substring(2);
+      dom.addEventListener(eventType, nextProps[name]);
+    });
+
   // Remove old properties
   Object.keys(prevProps)
     .filter(isNew)
@@ -221,7 +249,6 @@ function updateDom(dom, prevProps, nextProps) {
  * Here we recursively append all the nodes to the dom.
  */
 function commitRoot() {
-  console.log(wipRoot);
   deletions.forEach(commitWork);
   commitWork(wipRoot.child);
   currentRoot = wipRoot;
@@ -231,18 +258,30 @@ function commitRoot() {
 function commitWork(fiber) {
   if (!fiber) return;
 
-  const domParent = fiber.parent.dom;
+  let domParentFiber = fiber.parent;
+  while (!domParentFiber.dom) {
+    domParentFiber = domParentFiber.parent;
+  }
+  const domParent = domParentFiber.dom;
 
   if (fiber.effectTag === 'PLACEMENT' && fiber.dom !== null) {
     domParent.appendChild(fiber.dom);
   } else if (fiber.effectTag === 'DELETION') {
-    domParent.removeChild(fiber.dom);
+    commitDeletion(fiber, domParent);
   } else if (fiber.effectTag === 'UPDATE') {
     updateDom(fiber.dom, fiber.alternate.props, fiber.props);
   }
 
   commitWork(fiber.child);
   commitWork(fiber.sibling);
+}
+
+function commitDeletion(fiber, domParent) {
+  if (fiber.dom) {
+    domParent.removeChild(fiber.dom);
+  } else {
+    commitDeletion(fiber.child, domParent);
+  }
 }
 
 const ReactDOM = {
