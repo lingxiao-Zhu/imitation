@@ -7,7 +7,7 @@
 - [x] Concurrent Mode
 - [x] Fibers
 - [x] Commit Phases
-- [ ] Reconciliation
+- [x] Reconciliation
 - [ ] Function Components
 - [ ] Hooks
 
