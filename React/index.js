@@ -1,10 +1,11 @@
-import React from './react';
-import ReactDOM from './react-dom';
+import React, { useState } from './React';
+import ReactDOM from './ReactDOM';
 
-function App(props) {
-  return <h1>Hi {props.name}</h1>;
+function Counter() {
+  const [state, setState] = useState(1);
+  return <h1 onClick={() => setState((c) => c + 1)}>Count: {state}</h1>;
 }
 
 const container = document.getElementById('root');
 
-ReactDOM.render(<App name="foo" />, container);
+ReactDOM.render(<Counter />, container);

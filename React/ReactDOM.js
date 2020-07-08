@@ -258,6 +258,7 @@ function commitRoot() {
 function commitWork(fiber) {
   if (!fiber) return;
 
+  // find the parent of a DOM node we’ll need to go up the fiber tree until we find a fiber with a DOM node.
   let domParentFiber = fiber.parent;
   while (!domParentFiber.dom) {
     domParentFiber = domParentFiber.parent;
