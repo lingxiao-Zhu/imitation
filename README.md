@@ -12,6 +12,7 @@ Try to learn something interesting by handwriting
 - Promise/A+
 - ES6 Iterator
 - React
+- Programming
 
 ## Usage
 
