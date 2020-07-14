@@ -47,7 +47,14 @@ function createDOM(fiber) {
   const isProperty = (key) => key !== 'children';
   Object.keys(props)
     .filter(isProperty)
-    .forEach((name) => (dom[name] = props[name]));
+    .forEach((name) => {
+      if (name.startsWith('on')) {
+        const eventType = name.toLowerCase().substring(2);
+        dom.addEventListener(eventType, props[name]);
+      } else {
+        dom[name] = props[name];
+      }
+    });
   return dom;
 }
 
@@ -127,6 +134,9 @@ function performUnitOfWork(fiber) {
   return null;
 }
 
+let wipFiber = null;
+let hookIndex = null;
+
 /**
  * Function components are differents in two ways:
  * the fiber from a function component doesn’t have a DOM node,
@@ -134,8 +144,51 @@ function performUnitOfWork(fiber) {
  * @param {*} fiber
  */
 function updateFunctionComponent(fiber) {
+  wipFiber = fiber;
+  hookIndex = 0;
+  wipFiber.hooks = [];
   const children = [fiber.type(fiber.props)];
   reconcileChildren(fiber, children);
+}
+
+/**
+ * If we have an old hook,
+ * we copy the state from the old hook to the new hook,
+ * if we don’t we initialize the state.
+ * @param {*} initial
+ */
+function useState(initial) {
+  const oldHook = wipFiber.alternate && wipFiber.alternate.hooks && wipFiber.alternate.hooks[hookIndex];
+  const hook = {
+    state: oldHook ? oldHook.state : initial,
+    queue: [],
+  };
+
+  /**
+   * We do it the next time we are rendering the component,
+   * we get all the actions from the old hook queue,
+   * and then apply them one by one to the new hook state,
+   * so when we return the state it’s updated.
+   */
+  const actions = oldHook ? oldHook.queue : [];
+  actions.forEach((action) => {
+    hook.state = action(hook.state);
+  });
+  const setState = (action) => {
+    hook.queue.push(action);
+    // set a new work in progress root as the next unit of work
+    // so the work loop can start a new render phase.
+    wipRoot = {
+      dom: currentRoot.dom,
+      props: currentRoot.props,
+      alternate: currentRoot,
+    };
+    nextUnitOfWork = wipRoot;
+    deletions = [];
+  };
+  wipFiber.hooks.push(hook);
+  hookIndex++;
+  return [hook.state, setState];
 }
 
 function updateHostComponent(fiber) {
@@ -287,6 +340,7 @@ function commitDeletion(fiber, domParent) {
 
 const ReactDOM = {
   render,
+  useState,
 };
 
 export default ReactDOM;
