@@ -4,7 +4,7 @@
 
 ## Plans
 
-- [ ] 实现 bind 方法
+- [x] 实现 bind 方法
 - [ ] 解析 url 中的 query 参数
 - [ ] curry 化，eg：add(1,2,3) === add(1)(2)(3)
 - [ ] 防抖、节流
