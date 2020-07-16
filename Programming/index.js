@@ -33,10 +33,22 @@ function _instanceof(object, constructor) {
 }
 
 /**
- * typeof 操作符返回一个字符串，表示未经计算的操作数的类型。
- * @param {*} value
- * @returns {string}
+ * 把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。
+ * @param {Function} fn
  * @example
- * _typeof(1) === 'number'
+ * function add(x,y,z){ return x+y+z }
+ * const curAdd = curry(add);
+ * curAdd(1,2,3)   === 6
+ * curAdd(1)(2)(3) === 6
+ * curAdd(1,2)(3)  === 6
  */
-function _typeof(value) {}
+function curry(fn) {
+  const len = fn.length;
+  const allArgs = [];
+  const innerFunc = function (...args) {
+    allArgs.push(...args);
+    if (allArgs.length < len) return innerFunc;
+    return fn.apply(this, allArgs);
+  };
+  return innerFunc;
+}

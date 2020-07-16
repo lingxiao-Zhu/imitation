@@ -5,9 +5,9 @@
 ## Plans
 
 - [x] 实现 bind 方法。
-- [x] 实现 new、instanceof、typeof。
+- [x] 实现 new、instanceof。
 - [ ] 解析 url 中的 query 参数。
-- [ ] 实现 curry 函数。
+- [x] 实现 curry 函数。
 - [ ] 实现 防抖、节流。
 - [ ] 实现 深拷贝、浅拷贝。
 - [ ] 如何遍历一个 dom 树。
