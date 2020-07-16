@@ -56,7 +56,6 @@ Function.prototype.bind = function (context, ...outerArgs) {
   if (typeof this !== 'function') {
     throw new Error('Function.prototype.bind must be called by function');
   }
-
   const self = this;
   const fBound = function () {
     self.apply(this instanceof fBound ? this : context, [...outerArgs, ...innerArgs]);
