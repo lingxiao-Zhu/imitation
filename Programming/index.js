@@ -52,3 +52,12 @@ function curry(fn) {
   };
   return innerFunc;
 }
+
+/**
+ * 惰性函数
+ */
+function lazyFunc() {
+  const val = Date.now();
+  lazyFunc = () => val;
+  return lazyFunc();
+}
