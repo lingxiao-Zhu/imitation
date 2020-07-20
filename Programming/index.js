@@ -61,3 +61,50 @@ function lazyFunc() {
   lazyFunc = () => val;
   return lazyFunc();
 }
+
+/**
+ * 防抖
+ * @param {Function} fn
+ * @param {Number} timeout
+ * @returns {Function}
+ */
+function debounce(fn, timeout) {
+  let timer = null;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(fn.bind(this), timeout, args);
+  };
+}
+
+/**
+ * 节流
+ * @param {Function} fn
+ * @param {Number} timeout
+ * @returns {Function}
+ */
+function throttle(fn, timeout) {
+  let previous = 0;
+  let timer = null;
+  return function (...args) {
+    const period = Date.now() - previous;
+    if (period > timeout) {
+      // 超出等待时间
+      if (timer) {
+        clearTimeout(timer);
+        timer = null;
+      }
+      previous = Date.now();
+      fn.apply(this, args);
+    } else {
+      // 在等待时间内
+      if (!timer) {
+        const remaining = timeout - period;
+        timer = setTimeout(() => {
+          previous = Date.now();
+          timer = null;
+          fn.apply(this, args);
+        }, remaining);
+      }
+    }
+  };
+}
