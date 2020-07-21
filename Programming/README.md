@@ -16,3 +16,5 @@
 - [ ] 实现一个 div 滑动的动画，由快至慢 5s 结束。
 
 ![](../.screenshots/prototype.png?raw=true)
+![](../.screenshots/deep_clone.jpeg?raw=true)
+![](../.screenshots/shadow_clone.jpeg?raw=true)
