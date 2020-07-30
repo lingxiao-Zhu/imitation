@@ -98,4 +98,27 @@ function deepClone(origin, cacheMap = new WeakMap()) {
  * 克隆函数，需要区分箭头函数和普通函数
  * @param {*} origin
  */
-function cloneFunction(origin) {}
+function cloneFunction(func) {
+  const bodyReg = /(?<={)(.|\n)+(?=})/m;
+  const paramReg = /(?<=\().+(?=\)\s+{)/;
+  const funcString = func.toString();
+  if (func.prototype) {
+    console.log('普通函数');
+    const param = paramReg.exec(funcString);
+    const body = bodyReg.exec(funcString);
+    if (body) {
+      console.log('匹配到函数体：', body[0]);
+      if (param) {
+        const paramArr = param[0].split(',');
+        console.log('匹配到参数：', paramArr);
+        return new Function(...paramArr, body[0]);
+      } else {
+        return new Function(body[0]);
+      }
+    } else {
+      return null;
+    }
+  } else {
+    return eval(funcString);
+  }
+}

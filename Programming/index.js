@@ -108,3 +108,20 @@ function throttle(fn, timeout) {
     }
   };
 }
+
+/**
+ * 数组去重
+ * @param {Array} arr
+ */
+function flatten(arr) {
+  // return Array.from(new Set(arr));
+  const map = {};
+  return arr.filter((item) => {
+    if (map.hasOwnProperty(typeof item + JSON.stringify(item))) {
+      return false;
+    } else {
+      map[typeof item + JSON.stringify(item)] = 1;
+      return true;
+    }
+  });
+}
