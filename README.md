@@ -12,7 +12,17 @@ Try to learn something interesting by handwriting
 - Promise/A+
 - ES6 Iterator
 - React
+- IoC
 - Programming
+  - new
+  - instanceof
+  - throttle、debounce
+  - bind
+  - deepClone、shadowClone
+  - observer
+  - call
+  - Array.prototype.flat
+  - curry
 
 ## Usage
 
