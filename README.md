@@ -8,15 +8,15 @@ Try to learn something interesting by handwriting
 
 ## Table of Contents
 
-- Webpack
-- Promise/A+
-- ES6 Iterator
-- React
-- React-Router
-- IoC
-- Diff
-  - React
-  - Vue
+- [x] Webpack
+- [x] Promise/A+
+- [x] ES6 Iterator
+- [x] React
+- [x] React-Router
+- [ ] IoC
+- [ ] Diff
+  - [ ] React
+  - [ ] Vue
 - Programming
   - [x] new
   - [x] instanceof
@@ -26,7 +26,7 @@ Try to learn something interesting by handwriting
   - [ ] observer
   - [ ] call
   - [ ] Array.prototype.flat
-  - [ ] curry
+  - [x] curry
   - [ ] limiting
   - [ ] chain
 
