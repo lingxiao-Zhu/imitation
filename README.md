@@ -12,13 +12,14 @@ Try to learn something interesting by handwriting
 - Promise/A+
 - ES6 Iterator
 - React
+- React-Router
 - IoC
 - Diff
   - React
   - Vue
 - Programming
-  - [ ] new
-  - [ ] instanceof
+  - [x] new
+  - [x] instanceof
   - [ ] throttle、debounce
   - [x] bind
   - [ ] deepClone、shadowClone
@@ -26,6 +27,8 @@ Try to learn something interesting by handwriting
   - [ ] call
   - [ ] Array.prototype.flat
   - [ ] curry
+  - [ ] limiting
+  - [ ] chain
 
 ## Usage
 
