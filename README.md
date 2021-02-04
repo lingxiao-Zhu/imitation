@@ -20,7 +20,8 @@ Try to learn something interesting by handwriting
 - Programming
   - [x] new
   - [x] instanceof
-  - [ ] throttle、debounce
+  - [x] throttle
+  - [ ] debounce
   - [x] bind
   - [ ] deepClone、shadowClone
   - [ ] observer

@@ -1,18 +1,4 @@
 /**
- * 防抖
- * @param {Function} fn
- * @param {Number} timeout
- * @returns {Function}
- */
-function debounce(fn, timeout) {
-  let timer = null;
-  return function (...args) {
-    clearTimeout(timer);
-    timer = setTimeout(fn.bind(this), timeout, args);
-  };
-}
-
-/**
  * 节流
  * @param {Function} fn
  * @param {Number} timeout
