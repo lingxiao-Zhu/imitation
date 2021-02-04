@@ -1,22 +1,4 @@
 /**
- * instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
- * @param {*} object 实例
- * @param {FunctionConstructor} constructor 构造函数
- * @example
- * xxx instanceof Person
- * _instanceof(xxx, Person)
- */
-function _instanceof(object, constructor) {
-  const helper = function (object) {
-    if (constructor[Symbol.hasInstance] && constructor[Symbol.hasInstance](object)) return true;
-    if (object.__proto__ === null) return false;
-    if (object.__proto__ === constructor.prototype) return true;
-    return helper(object.__proto__, constructor.prototype);
-  };
-  return helper(object);
-}
-
-/**
  * 把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。
  * @param {Function} fn
  * @example
