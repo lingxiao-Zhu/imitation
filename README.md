@@ -13,11 +13,14 @@ Try to learn something interesting by handwriting
 - ES6 Iterator
 - React
 - IoC
+- Diff
+  - React
+  - Vue
 - Programming
   - new
   - instanceof
   - throttle、debounce
-  - bind
+  - [x] bind
   - deepClone、shadowClone
   - observer
   - call
