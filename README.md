@@ -17,15 +17,15 @@ Try to learn something interesting by handwriting
   - React
   - Vue
 - Programming
-  - new
-  - instanceof
-  - throttle、debounce
+  - [ ] new
+  - [ ] instanceof
+  - [ ] throttle、debounce
   - [x] bind
-  - deepClone、shadowClone
-  - observer
-  - call
-  - Array.prototype.flat
-  - curry
+  - [ ] deepClone、shadowClone
+  - [ ] observer
+  - [ ] call
+  - [ ] Array.prototype.flat
+  - [ ] curry
 
 ## Usage
 
