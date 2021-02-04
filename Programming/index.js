@@ -76,61 +76,6 @@ function throttle(fn, timeout) {
 }
 
 /**
- * 数组去重
- * @param {Array} arr
- */
-function flatten(arr) {
-  // return Array.from(new Set(arr));
-  const map = {};
-  return arr.filter((item) => {
-    if (map.hasOwnProperty(typeof item + JSON.stringify(item))) {
-      return false;
-    } else {
-      map[typeof item + JSON.stringify(item)] = 1;
-      return true;
-    }
-  });
-}
-
-/**
- * 深度优先遍历
- * @param {HTMLElement} root
- */
-function traverseByDFS(root) {
-  if (root.childNodes.length < 1) return;
-  root.childNodes.forEach(traverseByDFS);
-}
-
-/**
- * 广度优先遍历
- * @param {HTMLElement} root
- */
-function traverseByBFS() {}
-
-/**
- * @version 1.3
- * @param {*} context
- * @param  {...any} outerArgs
- */
-Function.prototype.bind = function (context, ...outerArgs) {
-  if (typeof this !== 'function') {
-    throw new Error('Function.prototype.bind must be called by function');
-  }
-  const self = this;
-  const fBound = function () {
-    self.apply(this instanceof fBound ? this : context, [...outerArgs, ...innerArgs]);
-  };
-  fBound.prototype = Object.create(this.prototype);
-  return fBound;
-};
-
-/**
- * 浅拷贝
- * @param {*} obj
- */
-function shadowClone(obj) {}
-
-/**
  * 深拷贝
  * @param {*} obj
  */
@@ -193,32 +138,3 @@ function deepClone(obj, cacheMap = new WeakMap()) {
       };
   }
 }
-
-/**
- * 构造并返回一个新字符串，该字符串包含被连接在一起的指定数量的字符串的副本。
- * @param {number} count
- */
-String.prototype.repeat = function (count) {};
-
-/**
- * 按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。
- * @param {number} deep
- */
-Array.prototype.flat = function (deep) {};
-
-/**
- * 异步并发数限制
- */
-function limit(count, array, iterateFunc) {}
-
-/**
- * 观察者模式
- */
-class EventEmitter {}
-
-/**
- * call方法
- * @param {*} thisArg
- * @param  {...any} args
- */
-Function.prototype.call = function (thisArg, ...args) {};
