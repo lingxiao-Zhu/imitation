@@ -13,23 +13,9 @@ Try to learn something interesting by handwriting
 - [x] ES6 Iterator
 - [x] React
 - [x] React-Router
-- [ ] IoC
+- [x] IoC
 - [ ] Diff
-  - [ ] React
-  - [ ] Vue
-- Programming
-  - [x] new
-  - [x] instanceof
-  - [x] throttle
-  - [x] debounce
-  - [x] bind
-  - [ ] deepClone、shadowClone
-  - [ ] observer
-  - [ ] call
-  - [ ] Array.prototype.flat
-  - [x] curry
-  - [ ] limiting
-  - [ ] chain
+- [ ] Programming
 
 ## Usage
 
