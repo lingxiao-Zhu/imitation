@@ -21,7 +21,7 @@ Try to learn something interesting by handwriting
   - [x] new
   - [x] instanceof
   - [x] throttle
-  - [ ] debounce
+  - [x] debounce
   - [x] bind
   - [ ] deepClone、shadowClone
   - [ ] observer
