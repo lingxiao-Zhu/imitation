@@ -6,7 +6,7 @@
 - [x] debounce
 - [x] bind
 - [x] curry
-- [ ] deepClone、shadowClone
+- [x] deepClone、shadowClone
 - [ ] observer
 - [x] call
 - [ ] Array.prototype.flat
