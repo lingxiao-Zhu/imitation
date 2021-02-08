@@ -10,6 +10,6 @@
 - [ ] observer
 - [x] call
 - [x] Array.prototype.flat
-- [ ] String.prototype.repeat
+- [x] String.prototype.repeat
 - [ ] limiting
 - [ ] chain
