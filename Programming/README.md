@@ -13,3 +13,4 @@
 - [x] String.prototype.repeat
 - [ ] limiting
 - [x] chain
+- [x] queue
