@@ -12,4 +12,4 @@
 - [x] Array.prototype.flat
 - [x] String.prototype.repeat
 - [ ] limiting
-- [ ] chain
+- [x] chain
