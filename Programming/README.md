@@ -7,7 +7,7 @@
 - [x] bind
 - [x] curry
 - [x] deepClone、shadowClone
-- [ ] observer
+- [x] observer
 - [x] call
 - [x] Array.prototype.flat
 - [x] String.prototype.repeat
