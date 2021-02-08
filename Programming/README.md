@@ -11,6 +11,6 @@
 - [x] call
 - [x] Array.prototype.flat
 - [x] String.prototype.repeat
-- [ ] limiting
+- [x] scheduler
 - [x] chain
 - [x] queue
