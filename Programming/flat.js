@@ -12,8 +12,14 @@ Array.prototype.flat1 = function (depth = 1) {
   return flatten;
 };
 
-// 迭代器 Iterator
-Array.prototype.flat2 = function (depth = 1) {};
-
 // ⽣成器 Generator
-Array.prototype.flat3 = function (depth = 1) {};
+// yield*:委托给另一位可迭代对象，不仅能作用于生成器，还可以用于其他任意可迭代对象
+Array.prototype.flat2 = function* () {
+  for (const item of this) {
+    if (Array.isArray(item)) {
+      yield* item.flat2();
+    } else {
+      yield item;
+    }
+  }
+};

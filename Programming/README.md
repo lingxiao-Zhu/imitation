@@ -9,7 +9,7 @@
 - [x] deepClone、shadowClone
 - [ ] observer
 - [x] call
-- [ ] Array.prototype.flat
+- [x] Array.prototype.flat
 - [ ] String.prototype.repeat
 - [ ] limiting
 - [ ] chain
