@@ -1,4 +1,30 @@
+/**
+ * 观察者模式
+ */
 class Observer {
+  constructor() {
+    this.events = new Set();
+  }
+
+  on(fn) {
+    this.events.add(fn);
+  }
+
+  off(fn) {
+    this.events.delete(fn);
+  }
+
+  call(...args) {
+    for (const fn of _events) {
+      fn.apply(null, args);
+    }
+  }
+}
+
+/**
+ * 发布订阅模式
+ */
+class EventListener {
   constructor() {
     this.events = new Map();
   }
