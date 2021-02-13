@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="mvvm-app">
+        <input type="text" v-model="word">
+        <p>{{word}}</p>
+        <button v-on:click="sayHi">change model</button>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#mvvm-app',
+            data: {
+                word: 'Hello World!'
+            },
+            methods: {
+                sayHi: function () {
+                    this.word = 'Hi, everybody!';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
