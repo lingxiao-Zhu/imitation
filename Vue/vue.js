@@ -32,6 +32,7 @@ function observe(data) {
 
 function defineReactive(data, key, value) {
   const dep = new Dep();
+
   // 监听子属性
   observe(value);
 
@@ -44,8 +45,8 @@ function defineReactive(data, key, value) {
       return value;
     },
     set: function (newVal) {
-      console.log('哈哈哈，监听到值变化了 ', val, ' --> ', newVal);
-      val = newVal;
+      console.log('哈哈哈，监听到值变化了 ', value, ' --> ', newVal);
+      value = newVal;
       // 通知所有订阅者
       dep.notify();
     },
@@ -70,7 +71,7 @@ class Watcher {
   }
   get() {
     Dep.target = this; // 将当前订阅者指向自己
-    var value = this.vm[exp]; // 触发getter，添加自己到属性订阅器中
+    var value = this.vm[this.exp]; // 触发getter，添加自己到属性订阅器中
     Dep.target = null; // 添加完毕，重置
     return value;
   }
@@ -146,11 +147,11 @@ class Compile {
     const nodeAttrs = node.attributes;
     [].slice.call(nodeAttrs).forEach((attr) => {
       // 规定：指令以 v-xxx 命名
-      // 如 <span v-text="content"></span> 中指令为 v-text
-      const attrName = attr.name; // v-text
+      // 如 <span v-model="content"></span> 中指令为 v-model
+      const attrName = attr.name; // v-model
       if (this.isDirective(attrName)) {
         const exp = attr.value; // content
-        const dir = attrName.substring(2); // text
+        const dir = attrName.substring(2); // model
         if (this.isEventDirective(dir)) {
           // 事件指令, 如 v-on:click
           compileUtil.eventHandler(node, this.$vm, exp, dir);
@@ -183,6 +184,12 @@ const compileUtil = {
   text: function (node, vm, exp) {
     this.bind(node, vm, exp, 'text');
   },
+  model: function (node, vm, exp) {
+    this.bind(node, vm, exp, 'model');
+    node.addEventListener('input', (e) => {
+      vm[exp] = e.target.value;
+    });
+  },
   // ...省略
   bind: function (node, vm, exp, dir) {
     var updaterFn = updater[dir + 'Updater'];
@@ -209,12 +216,39 @@ const updater = {
   textUpdater: function (node, value) {
     node.textContent = typeof value == 'undefined' ? '' : value;
   },
+  modelUpdater: function (node, value, oldValue) {
+    node.value = typeof value == 'undefined' ? '' : value;
+  },
   // ...省略
 };
 
-function Vue(options) {
-  this.$options = options;
-  var data = (this._data = this.$options.data);
-  observe(data, this);
-  this.$compile = new Compile(options.el || document.body, this);
+class Vue {
+  constructor(options) {
+    this.$options = options;
+    this._data = this.$options.data;
+    this.proxyData(this._data);
+    observe(this._data);
+    this.$compile = new Compile(options.el || document.body, this);
+  }
+
+  // 数据代理
+  // 实现 vm.xxx -> vm._data.xxx
+  proxyData(data) {
+    Object.keys(data).forEach((key) => {
+      this._proxyData(key);
+    });
+  }
+
+  _proxyData(key) {
+    Object.defineProperty(this, key, {
+      configurable: false,
+      enumerable: true,
+      get: function proxyGetter() {
+        return this._data[key];
+      },
+      set: function proxySetter(newVal) {
+        this._data[key] = newVal;
+      },
+    });
+  }
 }

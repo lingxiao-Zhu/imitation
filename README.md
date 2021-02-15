@@ -13,7 +13,7 @@ Try to learn something interesting by handwriting
 - [x] Promise/A+
 - [x] ES6 Iterator
 - [x] React
-- [ ] Vue
+- [x] Vue
 - [ ] React-Router
 - [x] IoC
 - [ ] Diff
