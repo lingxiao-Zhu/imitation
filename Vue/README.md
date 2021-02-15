@@ -12,3 +12,7 @@
 - 入口函数，整合以上三者。
 
 ## Object.defineProperty VS Proxy
+
+1. Proxy 可以直接监听对象而非属性
+2. Proxy 可以直接监听数组的变化，比如直接修改数组 length 以及 arr[x] = xxx
+3. Proxy 有多达 13 种拦截方法,不限于 apply、ownKeys、deleteProperty、has 等等是 Object.defineProperty 不具备的。
