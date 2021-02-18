@@ -16,7 +16,7 @@ Try to learn something interesting by handwriting
 - [x] Vue
 - [ ] React-Router
 - [x] IoC
-- [ ] Diff
+- [x] Diff
 - [x] Programming
 
 ## Usage
