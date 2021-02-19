@@ -15,7 +15,7 @@ Try to learn something interesting by handwriting
 - [x] React
 - [x] Vue
 - [x] React-Router
-- [ ] Middleware
+- [x] Koa Middleware
 - [x] IoC
 - [x] Diff
 - [x] Programming
