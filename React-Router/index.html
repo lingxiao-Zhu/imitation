@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <a href="#/page1">page1</a>
+        </li>
+        <li>
+            <a href="#/page2">page2</a>
+        </li>
+        <li>
+            <a href="#/page3">page3</a>
+        </li>
+    </ul>
+
+    <div id='root'></div>
+
+</body>
+
+<script>
+
+    window.addEventListener('DOMContentLoaded', onLoad)
+    window.addEventListener('hashchange', changeView)
+
+    function onLoad() {
+        changeView();
+    }
+
+    function changeView() {
+        switch (location.hash) {
+            case '#/page1':
+                document.getElementById('root').innerHTML = '<h1>page1</h1>'
+                break;
+            case '#/page2':
+                document.getElementById('root').innerHTML = '<h1>page2</h1>'
+                break;
+            case '#/page3':
+                document.getElementById('root').innerHTML = '<h1>page3</h1>'
+                break;
+        }
+    }
+
+
+</script>
+
+</html>
