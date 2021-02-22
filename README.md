@@ -9,7 +9,7 @@ Try to learn something interesting by handwriting
 ## Table of Contents
 
 - [x] Webpack
-- [ ] Vite
+- [x] Vite
 - [x] Promise/A+
 - [x] ES6 Iterator
 - [x] React
