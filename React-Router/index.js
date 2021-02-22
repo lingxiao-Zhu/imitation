@@ -72,9 +72,15 @@ class Link extends React.Component {
 }
 
 function App() {
-  <BrowserRouter>
-    <Route to="home" render={() => 1}></Route>
-    <Route to="home1" render={() => 1}></Route>
-    <Route to="home2" render={() => 1}></Route>
-  </BrowserRouter>;
+  <div>
+    <Link to="home" />
+    <Link to="home1" />
+    <Link to="home2" />
+    <BrowserRouter>
+      <Route path="home" render={() => 1}></Route>
+      <Route path="home1" render={() => 1}></Route>
+      <Route path="home2" render={() => 1}></Route>
+    </BrowserRouter>
+    ;
+  </div>;
 }
