@@ -19,6 +19,7 @@ Try to learn something interesting by handwriting
 - [x] IoC
 - [x] Diff
 - [ ] Parser
+- [ ] SSR
 - [x] Programming
 
 ## Usage
