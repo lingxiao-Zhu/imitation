@@ -13,6 +13,8 @@
 
 ### Transformation
 
-- 当我们的目标是新语言是，我们需要根据旧的 AST 来创建新的 AST
+- 我们需要根据新语言特性来将旧的 AST 来改造为新的 AST，
 
 ### Code Generation
+
+- 将新的 AST 转换为新语言代码
