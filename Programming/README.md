@@ -10,6 +10,7 @@
 - [x] observer
 - [x] call
 - [x] Array.prototype.flat
+- [x] Array.prototype.splice
 - [x] String.prototype.repeat
 - [x] scheduler
 - [x] chain
