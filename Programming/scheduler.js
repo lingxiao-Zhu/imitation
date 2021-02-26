@@ -34,7 +34,8 @@ function multiRequest(urls, maxNum) {
   const res = [];
   let i = 0; // urls下标
   let resolve;
-  let promise = new Promise((r) => (resolve = r)); // 一直pending，等到所有url完成再resolve
+  // 一直pending，等到所有url完成再resolve，保证promise.all最后执行
+  let promise = new Promise((r) => (resolve = r));
 
   const request = (url) => {
     return new Promise((resolve) => {
