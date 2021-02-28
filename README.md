@@ -20,6 +20,7 @@ Try to learn something interesting by handwriting source code
 - [x] Diff
 - [x] Compiler
 - [ ] SSR
+- [ ] SWR
 - [x] Programming
 
 ## Usage
