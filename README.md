@@ -19,6 +19,7 @@ Try to learn something interesting by handwriting source code
 - [x] IoC
 - [x] Diff
 - [x] Compiler
+- [x] Typescript 内置类型
 - [ ] SSR
 - [ ] SWR
 - [x] Programming
