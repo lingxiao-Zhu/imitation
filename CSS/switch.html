@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #switch {
+        width: 80px;
+        box-shadow: 0 0 4px 1px #ccc;
+        padding: 3px;
+        border-radius: 30px;
+        background: #eee;
+    }
+
+    #switch::after {
+        display: block;
+        content: '';
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border: 1px solid #e7e7e7;
+        transition: 0.2s all linear;
+    }
+
+    #switch:hover {
+        background: green;
+    }
+
+    #switch:hover::after {
+        transform: translateX(40px);
+    }
+</style>
+
+<body>
+    <div id='switch'></div>
+</body>
+
+</html>
