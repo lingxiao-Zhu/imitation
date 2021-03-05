@@ -25,6 +25,7 @@
     "enhanced-resolve": "^4.1.1",
     "eslint": "^6.8.0",
     "koa2": "^2.0.0-alpha.7",
+    "puppeteer": "^8.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "reflect-metadata": "^0.1.13",

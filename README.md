@@ -15,6 +15,7 @@ Try to learn something interesting by handwriting source code
 - [x] React
 - [x] Vue
 - [x] React-Router
+- [x] Experiments 一些库的 demo 实践
 - [x] Koa Middleware
 - [x] IoC
 - [x] Diff
@@ -23,7 +24,7 @@ Try to learn something interesting by handwriting source code
 - [ ] SSR
 - [ ] SWR
 - [x] Programming
-- [x] Browser 浏览器相关 API
+- [x] Browser 浏览器相关 API Demo 体验
 - [x] CSS
 
 ## Usage
