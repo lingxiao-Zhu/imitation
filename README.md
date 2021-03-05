@@ -10,7 +10,6 @@ Try to learn something interesting by handwriting source code
 
 - [x] Webpack
 - [x] Vite
-- [x] CSS
 - [x] Promise/A+
 - [x] ES6 Iterator
 - [x] React
@@ -24,6 +23,8 @@ Try to learn something interesting by handwriting source code
 - [ ] SSR
 - [ ] SWR
 - [x] Programming
+- [x] Browser 浏览器相关 API
+- [x] CSS
 
 ## Usage
 
