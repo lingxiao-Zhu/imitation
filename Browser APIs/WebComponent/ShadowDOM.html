@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>shadow dom</h1>
+    <button onclick="change()">change shadow dom content</button>
+    <div id='root'></div>
+</body>
+<script>
+    var target = document.getElementById('root');
+    const shadow = target.attachShadow({
+        mode: 'open'
+    })
+
+    const p = document.createElement('p')
+    p.textContent = 'this is a p element which in shadow dom'
+
+    shadow.appendChild(p);
+
+    function change() {
+        target.shadowRoot.querySelector('p').textContent = 'changed!!'
+    }
+
+</script>
+
+</html>
