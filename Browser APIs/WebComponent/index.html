@@ -6,18 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="./CustomElement.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOMContentLoaded')
+        })
+    </script>
 </head>
 
 <body>
 
+    <h1>Custom Element</h1>
+    <form>
+        <div>
+            <label for="cvc">Enter your CVC
+                <popup-info img="img/alt.png"
+                    data-text="Your card validation code (CVC) is an extra security feature — it is the last 3 or 4 numbers on the back of your card.">
+                </popup-info>
+            </label>
+            <input type="text" id="cvc">
+        </div>
+    </form>
+
 </body>
 
-<script>
-    class WordCount extends HTMLParagraphElement {
-        constructor() {
-            super()
-        }
-    }
-</script>
+
 
 </html>
