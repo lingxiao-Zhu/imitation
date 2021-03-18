@@ -39,21 +39,22 @@ function insertSort(arr) {
 function binaryInsertSort(arr) {
   for (let i = 1; i < arr.length; i++) {
     let start = 0;
-    let middle = start + Math.ceil(i / 2);
-    let end = i;
+    let end = i - 1;
 
-    while (middle - start > 1) {
+    while (start <= end) {
+      const middle = start + Math.floor((end - start) / 2);
       if (arr[middle] > arr[i]) {
-        end = middle;
+        end = middle - 1;
       } else {
-        start = middle;
+        start = middle + 1;
       }
-      middle = start + Math.ceil((end - start) / 2);
     }
-
     arr.splice(start, 0, arr[i]);
+    arr.splice(i + 1, 1);
   }
 }
+
+// const arr = [5, 2, 4, 1, 23, 9, 10, 3];
 
 binaryInsertSort(arr);
 
