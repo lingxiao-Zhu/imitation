@@ -16,6 +16,10 @@ export default function createStore(reducer, preloadedState?, enhancer?) {
     preloadedState = undefined;
   }
 
+  if(typeof enhancer === 'function'){
+    return enhancer(createStore)(reducer, preloadedState)
+  }
+
   /*
    * This prevents any bugs around consumers calling
    * subscribe/unsubscribe in the middle of a dispatch.
