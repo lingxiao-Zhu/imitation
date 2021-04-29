@@ -35,10 +35,44 @@ export default function createStore(reducer, preloadedState?, enhancer?) {
     ensureCanMutateNextListeners();
     return function unsubscribe() {
       if (!isSubscribed) return;
-
       if (isDispatching) {
         throw new Error('You may not unsubscribe from a store listener while the reducer is executing.');
       }
+      isSubscribed = false;
+      ensureCanMutateNextListeners();
+      const index = nextListeners.indexOf(listener);
+      nextListeners.splice(index, 1);
+      currentListeners = null;
     };
   }
+
+  function dispatch(action) {
+    if (isDispatching) {
+      throw new Error('Reducers may not dispatch actions.');
+    }
+
+    try {
+      isDispatching = true;
+      currentState = currentReducer(currentState, action);
+    } catch (e) {
+    } finally {
+      isDispatching = false;
+    }
+
+    const listeners = (currentListeners = nextListeners);
+
+    for (let i = 0; i < listeners.length; i++) {
+      const listener = listeners[i];
+      listener();
+    }
+
+    return action;
+  }
+
+  const store = {
+    dispatch,
+    subscribe,
+    getState,
+  };
+  return store;
 }

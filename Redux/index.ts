@@ -21,6 +21,8 @@ const reducer2 = (state = {}, action) => {
   }
 };
 
+const middleware1 = () => () => {};
+
 const finalReducer = combineReducers({
   reducer1,
   reducer2,
