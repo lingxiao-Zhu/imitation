@@ -21,8 +21,7 @@ Try to learn something interesting by handwriting source code
 - [x] Diff
 - [x] Compiler
 - [x] Typescript 内置类型
-- [ ] SSR
-- [ ] SWR
+- [x] Redux
 - [x] Programming
 - [x] Browser 浏览器相关 API Demo 体验
 - [x] CSS
