@@ -1,4 +1,4 @@
-function bind(target, ...outerArgs) {
+Function.prototype.bind = function (target, ...outerArgs) {
   const oThis = this;
   if (typeof oThis !== 'function') {
     throw new Error('bind must be called by function');
@@ -9,4 +9,4 @@ function bind(target, ...outerArgs) {
   };
   fBound.prototype = Object.create(oThis.prototype);
   return fBound;
-}
+};
