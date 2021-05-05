@@ -33,13 +33,14 @@ function Fibonacci2(n, cache = {}) {
  * @param {number} n
  */
 function Fibonacci3(n) {
+  if (n <= 1) return n;
+
   let a = 0;
-  let b = 1;
+  let b = 1; // final num
 
-  let i = 2;
-
-  while (i <= n) {
-    i++;
+  let m = 2;
+  while (m <= n) {
+    m++;
     let tmp = a;
     a = b;
     b = tmp + b;
