@@ -8,6 +8,7 @@ function ListNode(val, next) {
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @return {ListNode}
+ * @description 合并两个升序列表
  */
 var mergeTwoLists = function (l1, l2) {
   const dummyHead = new ListNode(null);
