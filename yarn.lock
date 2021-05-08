@@ -1460,9 +1460,35 @@
   version "4.0.0"
   resolved "https://npm.xiguacity.cn/@types%2fparse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
 
+"@types/prop-types@*":
+  version "15.7.3"
+  resolved "https://npm.xiguacity.cn/@types%2fprop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
+  integrity sha1-KrDV2i5YFflLC51LldHl8kOrLKc=
+
 "@types/q@^1.5.1":
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
+
+"@types/react-dom@^17.0.3":
+  version "17.0.3"
+  resolved "https://npm.xiguacity.cn/@types%2freact-dom/-/react-dom-17.0.3.tgz#7fdf37b8af9d6d40127137865bb3fff8871d7ee1"
+  integrity sha1-f983uK+dbUAScTeGW7P/+IcdfuE=
+  dependencies:
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@^17.0.5":
+  version "17.0.5"
+  resolved "https://npm.xiguacity.cn/@types%2freact/-/react-17.0.5.tgz#3d887570c4489011f75a3fc8f965bf87d09a1bea"
+  integrity sha1-PYh1cMRIkBH3Wj/I+WW/h9CaG+o=
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/scheduler@*":
+  version "0.16.1"
+  resolved "https://npm.xiguacity.cn/@types%2fscheduler/-/scheduler-0.16.1.tgz#18845205e86ff0038517aab7a18a62a6b9f71275"
+  integrity sha1-GIRSBehv8AOFF6q3oYpiprn3EnU=
 
 "@types/yauzl@^2.9.1":
   version "2.9.1"
@@ -2578,6 +2604,11 @@ csstype@^2.6.8:
   version "2.6.15"
   resolved "https://npm.xiguacity.cn/csstype/-/csstype-2.6.15.tgz#655901663db1d652f10cb57ac6af5a05972aea1f"
   integrity sha1-ZVkBZj2x1lLxDLV6xq9aBZcq6h8=
+
+csstype@^3.0.2:
+  version "3.0.8"
+  resolved "https://npm.xiguacity.cn/csstype/-/csstype-3.0.8.tgz#d2266a792729fb227cd216fb572f43728e1ad340"
+  integrity sha1-0iZqeScp+yJ80hb7Vy9Dco4a00A=
 
 cz-conventional-changelog@3.2.0:
   version "3.2.0"
@@ -6379,6 +6410,11 @@ type-is@^1.5.5:
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
+
+typescript@^4.2.4:
+  version "4.2.4"
+  resolved "https://npm.xiguacity.cn/typescript/-/typescript-4.2.4.tgz#8610b59747de028fda898a8aef0e103f156d0961"
+  integrity sha1-hhC1l0feAo/aiYqK7w4QPxVtCWE=
 
 unbzip2-stream@^1.3.3:
   version "1.4.3"
