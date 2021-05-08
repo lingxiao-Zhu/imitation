@@ -104,7 +104,7 @@ function diffAttr(oldAttrs, newAttrs) {
 function diffChildren(oldChildren, newChildren, index, patches) {
   let newIdx = 0;
 
-  // 第一轮遍历
+  // 第一轮遍历，处理更新的节点
   for (; newIdx < newChildren.length; newIdx++) {
     // key相同
     const newNode = newChildren[newIdx];
@@ -133,11 +133,11 @@ function diffChildren(oldChildren, newChildren, index, patches) {
    * 4.都没遍历完
    */
 
-  // 第二轮遍历
+  // 第二轮遍历，处理不属于更新的节点
   let lastPlacedIndex = newIdx; //最后一个可复用的节点在old中的位置索引
 
   for (; newIdx < newChildren.length; newIdx++) {
-    const key = newChildren[newIdx.key];
+    const key = newChildren[newIdx].key;
     const oldIndex = getOldIndex(key);
     if (oldIndex >= lastPlacedIndex) {
       lastPlacedIndex = oldIndex;
