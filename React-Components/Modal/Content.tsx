@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Mask from './Mask';
 
 type IProps = {
   visible: boolean;

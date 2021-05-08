@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Portal from './Portal';
-import Mask from './Mask';
 import Content from './Content';
 
 type IProps = {
@@ -24,9 +23,10 @@ function Modal({ visible }: IProps) {
   }, [visible]);
 
   return (
+    // Portal 初始化后，就一直存在不被销毁
     <Portal visible={visible}>
       <div className="rc-modal-root">
-        <Mask visible={visible} />
+        {visible && <div className="rc-modal-mask"></div>}
         <div className="rc-modal-warp" style={{ display: !animatedVisible ? 'none' : null }}>
           <Content visible={visible} onVisibleChanged={onDialogVisibleChanged} />
         </div>
