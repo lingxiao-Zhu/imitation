@@ -9,4 +9,11 @@
  *
  * 要求时间复杂度为O(n)。
  */
-var maxSubArray = function (nums) {};
+var maxSubArray = function (nums) {
+  for (let i = 1; i < nums.length; i++) {
+    nums[i] = nums[i - 1] >= 0 ? nums[i - 1] + nums[i] : nums[i];
+  }
+  return nums.sort((a, b) => a - b).pop();
+};
+
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
