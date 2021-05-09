@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>position_margin</title>
     <style>
-        body {
-            padding: 0;
-            margin: 0;
-        }
+      body {
+        padding: 0;
+        margin: 0;
+      }
 
-        div {
-            height: 500px;
-        }
+      div {
+        height: 500px;
+      }
 
-        .left {
-            float: left;
-            background-color: green;
-            width: 300px;
-        }
+      .left {
+        float: left;
+        background-color: green;
+        width: 300px;
+      }
 
-        .middle {
-            background: red;
-            margin-left: 300px;
-            margin-right: 300px;
-        }
+      .middle {
+        background: red;
+        margin-left: 300px;
+        margin-right: 300px;
+      }
 
-        .right {
-            float: right;
-            width: 300px;
-            background: #00f;
-        }
+      .right {
+        float: right;
+        width: 300px;
+        background: #00f;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="left"></div>
     <div class="right"></div>
     <!-- float需要在前面，不让会换行 -->
+    <!-- 浮动元素跟在块级后面，会换行，块级跟在浮动元素后会覆盖，所以middle元素放在最后 -->
     <div class="middle"></div>
-</body>
-
+  </body>
 </html>
