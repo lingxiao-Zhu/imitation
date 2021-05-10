@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 
 type IProps = {
   visible: boolean;
+  onCancel: () => void;
   onVisibleChanged: (visible: boolean) => void;
 };
 
-function Content({ visible, onVisibleChanged }: IProps) {
+function Content({ visible, onVisibleChanged, onCancel }: IProps) {
   const handleCancel = () => {
+    onCancel();
+    // after animation
     onVisibleChanged(false);
   };
 

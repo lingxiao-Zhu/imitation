@@ -4,9 +4,10 @@ import Content from './Content';
 
 type IProps = {
   visible: boolean;
+  onCancel: () => void;
 };
 
-function Modal({ visible }: IProps) {
+function Modal({ visible, onCancel }: IProps) {
   const [animatedVisible, setAnimatedVisible] = useState(visible);
 
   const onDialogVisibleChanged = (newVisible: boolean) => {
@@ -28,7 +29,7 @@ function Modal({ visible }: IProps) {
       <div className="rc-modal-root">
         {visible && <div className="rc-modal-mask"></div>}
         <div className="rc-modal-warp" style={{ display: !animatedVisible ? 'none' : null }}>
-          <Content visible={visible} onVisibleChanged={onDialogVisibleChanged} />
+          <Content onCancel={onCancel} visible={visible} onVisibleChanged={onDialogVisibleChanged} />
         </div>
       </div>
     </Portal>
