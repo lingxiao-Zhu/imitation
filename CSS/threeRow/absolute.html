@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    .layout {
+      position: relative;
+      height: 100vh;
+    }
+    .layout .top {
+      position: absolute;
+      top: 0;
+      height: 100px;
+      background: red;
+      width: 100%;
+    }
+    .layout .center {
+      position: absolute;
+      top: 100px;
+      width: 100%;
+      bottom: 100px;
+      background: yellow;
+    }
+    .layout .bottom {
+      position: absolute;
+      bottom: 0;
+      height: 100px;
+      background: blue;
+      width: 100%;
+    }
+  </style>
+  <body>
+    <div class="layout">
+      <div class="top">22</div>
+      <div class="center">
+        <h1>absolute中间自适应元素</h1>
+      </div>
+      <div class="bottom"></div>
+    </div>
+  </body>
+</html>

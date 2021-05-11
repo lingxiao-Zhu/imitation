@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .wrapper {
+        position: relative;
+        padding-bottom: 50px;
+        box-sizing: border-box;
+        min-height: 100%; /* min-height很重要 */
+      }
+      .content {
+        background-color: darkcyan;
+        height: 800px;
+      }
+      .footer {
+        position: absolute;
+        bottom: 0;
+        height: 50px;
+        width: 100%;
+        background-color: darkgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="content"></div>
+      <div class="footer"></div>
+    </div>
+  </body>
+</html>
