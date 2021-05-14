@@ -23,3 +23,25 @@ Array.prototype.flat2 = function* () {
     }
   }
 };
+
+/**
+ * 如果数组里全是数字
+ * @param {Array<number>} arr
+ * @returns
+ */
+function flat3(arr) {
+  return arr
+    .toString()
+    .split(',')
+    .map((str) => +str);
+}
+
+/**
+ * 通过reduce
+ * @param {Array<any>} arr
+ */
+function flat4(arr) {
+  return arr.reduce((prev, next) => {
+    return prev.concat(Array.isArray(next) ? flat4(next) : next);
+  }, []);
+}
