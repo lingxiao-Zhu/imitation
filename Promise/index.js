@@ -237,3 +237,46 @@ MyPromise.reject = function (reason) {
     }
   });
 };
+
+/**
+ *
+ * @param {Array<unknown>} promises
+ */
+Promise.allWithLimit = function (promises, limit = 10) {
+  const res = [];
+
+  let i = 0;
+
+  return new Promise((resolve, reject) => {
+    function start() {
+      const item = promises[i];
+      if (item instanceof Promise) {
+        item.then((val) => {
+          res[i] = val;
+          if (i >= promises.length - 1) {
+            resolve(res);
+          } else {
+            i++;
+            start();
+          }
+        }, reject);
+      } else {
+        res[i] = item;
+        if (i >= promises.length - 1) {
+          resolve(res);
+        } else {
+          i++;
+          start();
+        }
+      }
+    }
+
+    while (i < limit) {
+      start();
+    }
+  });
+};
+
+Promise.allWithLimit([1, 2, 3, 4, 5, 6, 7]).then((res) => {
+  console.log(res);
+});
