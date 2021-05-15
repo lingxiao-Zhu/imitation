@@ -22,6 +22,7 @@ Try to learn something interesting by handwriting source code
 - [x] Compiler
 - [x] Typescript 内置类型
 - [x] Redux
+- [x] Redux-React
 - [ ] MobX
 - [x] JSONP
 - [x] Programming
