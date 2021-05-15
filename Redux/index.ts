@@ -42,6 +42,4 @@ const finalReducer = combineReducers({
   reducer2,
 });
 
-const store = createStore(finalReducer, enhancer);
-
-store.dispatch({})
+export default createStore(finalReducer, enhancer);
