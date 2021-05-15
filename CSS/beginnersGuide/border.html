@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .main {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 500px;
+      }
+      #modal {
+        position: fixed;
+        border-color: rgba(0, 0, 0, 0.5);
+        border-style: solid;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <button onclick="_alert('hello')">say hello</button>
+      <button onclick="_alert('goodbye')">say goodbye</button>
+    </div>
+    <div id="modal"></canvas>
+  </body>
+  <script>
+    function _alert(word) {
+      alert(word);
+    }
+  </script>
+  <script>
+    const clientWidth = document.documentElement.clientWidth;
+    const clientHeight = document.documentElement.clientHeight;
+    const elm = document.querySelector('.main > button:first-child');
+    const rect = elm.getBoundingClientRect();
+
+    const modal = document.getElementById('modal');
+    modal.style.setProperty('width', `${rect.width}px`)
+    modal.style.setProperty('height', `${rect.height}px`)
+
+    modal.style.setProperty('border-top-width', `${rect.top}px`)
+    modal.style.setProperty('border-left-width', `${rect.left}px`)
+    modal.style.setProperty('border-right-width', `${clientWidth-rect.right}px`)
+    modal.style.setProperty('border-bottom-width', `${clientHeight-rect.bottom}px`)
+
+
+
+  </script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .main {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 500px;
+      }
+      .modal {
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+      }
+      .modal-target-hello {
+        position: fixed;
+        background-color: red;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <button onclick="_alert('hello')">say hello</button>
+      <button onclick="_alert('goodbye')">say goodbye</button>
+    </div>
+    <div class="modal modal-top"></div>
+    <div class="modal modal-left"></div>
+    <div class="modal modal-right"></div>
+    <div class="modal modal-bottom"></div>
+    <div class="modal-target-hello"></div>
+  </body>
+  <script>
+    function _alert(word) {
+      alert(word);
+    }
+  </script>
+  <script>
+    const el = document.querySelector('.main > button:first-child');
+    const clientWidth = document.documentElement.clientWidth;
+    const clientHeight = document.documentElement.clientHeight;
+    const rect = el.getBoundingClientRect();
+
+    const topModal = document.querySelector('.modal.modal-top');
+    topModal.style.setProperty('inset', `0 0 ${clientHeight - rect.top}px 0`);
+
+    const leftModal = document.querySelector('.modal.modal-left');
+    leftModal.style.setProperty('inset', `${rect.top}px ${clientWidth - rect.left}px 0 0`);
+
+    const rightModal = document.querySelector('.modal.modal-right');
+    rightModal.style.setProperty('inset', `${rect.top}px 0 0 ${rect.right}px`);
+
+    const bottomModal = document.querySelector('.modal.modal-bottom');
+    bottomModal.style.setProperty('inset', `${rect.bottom}px ${clientWidth - rect.right}px 0 ${rect.left}px`);
+
+    const targetModal = document.querySelector('.modal-target-hello');
+    targetModal.style.setProperty(
+      'inset',
+      `${rect.top}px ${clientWidth - rect.right}px ${clientHeight - rect.bottom}px ${rect.left}px`,
+    );
+  </script>
+</html>
