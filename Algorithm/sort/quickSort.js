@@ -29,4 +29,18 @@ function qSort(list) {
   return qSort(lesser).concat(pivot, qSort(greater));
 }
 
+// 时间复杂度
+/**
+ * T(n) = 2(T(n/2)) + cn
+ * T(n) = 2(2(T(n/4))) + 2cn
+ * T(n) = 2(2(2(T(n/8)))) + 3cn
+ * T(n) = 2^k(T(n/2^k)) + kcn
+ *
+ * n/2^k = 1, n = 2^k，k = logn
+ *
+ * T(n) = 2^logn(T(1)) + logn * cn // 2^logn = n
+ * T(n) = n(T(1)) + logn * cn // 去掉 n(T(1))
+ * T(n) = logn * cn // 去掉常量 c
+ * T(n) = nlogn // 去掉常量 c
+ */
 console.log(qSort(arr));
