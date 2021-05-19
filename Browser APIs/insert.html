@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="console.log(11)">click me</button>
+    <ul id="root"></ul>
+</body>
+
+<script>
+    const ul = document.getElementById('root')
+
+    const data = new Array(1000);
+
+    function insert() {
+        const fragment = document.createDocumentFragment();
+        const slice = data.splice(0, 100);
+        for (let i = 0; i < slice.length; i++) {
+            const li = document.createElement('li');
+            li.innerText = '1'
+            fragment.appendChild(li)
+        }
+        ul.appendChild(fragment)
+        if (data.length > 0) {
+            requestAnimationFrame(insert)
+        }
+    }
+
+
+    requestAnimationFrame(insert)
+
+
+</script>
+
+</html>
