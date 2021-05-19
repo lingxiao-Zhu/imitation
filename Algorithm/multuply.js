@@ -58,7 +58,7 @@ var multiply2 = function (num1, num2) {
   for (let i = len1 - 1; i >= 0; i--) {
     for (let j = len2 - 1; j >= 0; j--) {
       const total = num1[i] * num2[j] + arr[i + j + 1];
-      arr[i + j] += Math.floor(total / 10); // 十位，这里有个 +=
+      arr[i + j] += Math.floor(total / 10); // 十位，这里有个 +=，十位作为下一次的个位
       arr[i + j + 1] = total % 10; //个位
     }
   }
