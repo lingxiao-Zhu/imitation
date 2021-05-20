@@ -32,7 +32,7 @@ var hasCycle2 = function (head) {
   let slow = head;
   let fast = head;
 
-  while (cur && cur.next) {
+  while (slow && fast && fast.next) {
     slow = slow.next;
     fast = fast.next.next;
     if (slow === fast) return true;
