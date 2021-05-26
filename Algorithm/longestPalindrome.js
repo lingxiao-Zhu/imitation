@@ -9,11 +9,11 @@ var longestPalindrome = function (s) {
   let res = '';
 
   for (let i = 0; i < s.length; i++) {
-    hepler(i, i);
-    hepler(i, i + 1);
+    helper(i, i);
+    helper(i, i + 1);
   }
 
-  function hepler(m, n) {
+  function helper(m, n) {
     while (s[m] === s[n] && m >= 0 && n < s.length) {
       m--;
       n++;

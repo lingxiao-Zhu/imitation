@@ -2,7 +2,7 @@ function throttle1(fn, wait = 500) {
   let lastTime = Date.now();
   return function (...args) {
     const now = Date.now();
-    if (now - las > wait) {
+    if (now - lastTime > wait) {
       fn.apply(this, args);
       lastTime = now;
     }
@@ -16,10 +16,10 @@ function throttle2(fn, wait = 500) {
   let lastTime = Date.now();
   let timer;
   return function (...args) {
+    clearTimeout(timer);
     const now = Date.now();
-    const period = now - las;
-    if (period - las > wait) {
-      clearTimeout(timer);
+    const period = now - lastTime;
+    if (period - lastTime > wait) {
       fn.apply(this, args);
       lastTime = now;
     } else {
