@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas width="200" height="200" style="border: 1px solid #ccc" id="canvas"></canvas>
+  </body>
+  <script>
+    window.onload = function () {
+      var ctx = document.getElementById('canvas').getContext('2d');
+
+      // 半圆画线
+      // ctx.beginPath();
+      // ctx.arc(80, 80, 50, 0, (180 * Math.PI) / 180, true);
+      // ctx.closePath();
+      // ctx.strokeStyle = 'hotpink';
+      // ctx.stroke();
+
+      // 整圆
+      // ctx.beginPath();
+      // ctx.arc(120, 80, 50, 0, (360 * Math.PI) / 180, true);
+      // ctx.closePath();
+      // ctx.strokeStyle = 'hotpink';
+      // ctx.stroke();
+
+      // 弧边
+      // ctx.beginPath();
+      // ctx.arc(150, 80, 50, 0, (20 * Math.PI) / 180, false); // 默认false，顺时针
+      // ctx.stroke();
+
+      // 直线加弧线
+      ctx.moveTo(20, 20);
+      ctx.lineTo(70, 20);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(70, 70, 50, (270 * Math.PI) / 180, (360 * Math.PI) / 180);
+      ctx.stroke();
+    };
+  </script>
+</html>
