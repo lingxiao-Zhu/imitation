@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas width="200" height="200" style="border: 1px solid #ccc" id="canvas"></canvas>
+  </body>
+  <script>
+    var ctx = document.getElementById('canvas').getContext('2d');
+
+    window.onload = function () {
+      for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < 6; j++) {
+          ctx.fillStyle = `rgb(${Math.floor(255 - 42.5 * i)}, ${Math.floor(255 - 42.5 * j)}, 0)`;
+          ctx.fillRect(j * 25, i * 25, 25, 25);
+        }
+      }
+    };
+  </script>
+</html>
