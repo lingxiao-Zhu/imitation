@@ -1,0 +1,18 @@
+{
+  "name": "graphql",
+  "version": "1.0.0",
+  "description": "try to understand framework source code",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "graphql": "nodemon --exec ts-node server.ts"
+  },
+  "license": "ISC",
+  "homepage": "https://github.com/lingxiao-Zhu/imitation#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.3.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
+  }
+}
