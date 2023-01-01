@@ -29,6 +29,9 @@ Try to learn something interesting by handwriting source code
 - [x] Browser 浏览器相关 API Demo 体验
 - [x] CSS
 - [ ] SSR
+- [ ] Taro2(miniAppToReact)
+- [ ] Taro2(reactToMiniApp)
+- [ ] Taro3
 
 ## Usage
 
