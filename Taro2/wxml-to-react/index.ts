@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import generate from '@babel/generator';
 
 import scriptIterator from './scriptIterator';
 import { ICode, ITransformParams } from './types';
@@ -24,7 +25,12 @@ function readCode(params: ITransformParams): ICode {
 
 function transformCode(code: ICode, params: ITransformParams) {
   const script = scriptIterator(code.scriptCode, params.componentName);
-  // const template = templateIterator(code.templateCode);
+  const template = templateIterator(code.templateCode);
+
+  return reactTemplateBuilder({
+    script,
+    template,
+  });
 }
 
 function transform(params: ITransformParams) {

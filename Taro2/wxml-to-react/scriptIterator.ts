@@ -66,4 +66,6 @@ export default function scriptIterator(script: string, name: string) {
       }
     },
   });
+
+  return visitor.script;
 }

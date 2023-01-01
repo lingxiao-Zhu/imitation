@@ -38,3 +38,14 @@ export interface Script {
   // customObjectProperty: t.ClassProperty[]; //
   // observer: ScriptObserver[];
 }
+
+export interface Template {
+  ast: t.JSXElement | t.JSXText | t.JSXExpressionContainer | undefined;
+  attrsCollector: Set<string>;
+  templateCollector: Set<t.ClassMethod>;
+  eventsCollector: EventsCollector;
+  slotsCollector: Map<string, ScriptProps>;
+  tagCollector: Set<string>;
+}
+
+export type EventsCollector = Map<string, { name: string; stopPropagation: boolean; withData: boolean }>;
