@@ -14,7 +14,9 @@ export default function scriptIterator(script: string, name: string) {
     sourceType: 'module',
   });
 
-  // collect props and data key firstly
+  // 收集 import 依赖
+
+  // 收集 data
   traverse(vast, {
     ObjectProperty(path: NodePath<t.ObjectProperty>) {
       const parent = path.parentPath.parent;
@@ -22,7 +24,6 @@ export default function scriptIterator(script: string, name: string) {
       if (t.isCallExpression(parent) && (parent.callee as t.Identifier).name === 'Page') {
         // 顶级的 ObjectProperty；比如 data/properties 等
         switch (name) {
-          // opt.data
           case 'data':
             const node = path.node.value;
             if (t.isObjectExpression(node)) {
@@ -32,7 +33,6 @@ export default function scriptIterator(script: string, name: string) {
               // visitor.dataHandler(node.properties, true);
             }
             break;
-          // opt.props
           // case 'properties':
           //   visitor.propsHandler(path);
           //   break;
