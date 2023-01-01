@@ -1,3 +1,3 @@
-export function showToast() {
-  console.log('showToast');
+export function showToast(msg) {
+  console.log(msg);
 }

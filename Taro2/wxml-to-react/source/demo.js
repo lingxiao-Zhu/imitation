@@ -6,7 +6,7 @@ Page({
     hideMsg: false,
   },
   onReady() {
-    showToast();
+    showToast(this.data.msg);
   },
   hide() {
     this.setData({
