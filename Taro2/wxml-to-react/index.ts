@@ -1,8 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import parser from '@babel/parser';
 
-import scriptIterator from './iterators/scriptIterator';
+import scriptIterator from './scriptIterator';
 import { ICode, ITransformParams } from './types';
 
 function getCode(codePath: string) {
@@ -33,6 +32,6 @@ function transform(params: ITransformParams) {
 }
 
 transform({
-  baseDir: path.resolve(__filename, '../..', 'source'),
+  baseDir: path.resolve(__filename, '../', 'source'),
   componentName: 'demo',
 });

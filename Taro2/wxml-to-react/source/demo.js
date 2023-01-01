@@ -1,10 +1,12 @@
+import { showToast } from './utils';
+
 Page({
   data: {
     msg: 'hell world',
     hideMsg: false,
   },
-  onLoad() {
-    console.log('onLoad');
+  onReady() {
+    showToast();
   },
   hide() {
     this.setData({

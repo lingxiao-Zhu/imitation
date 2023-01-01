@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "wxml-to-react": "ts-node wxml-to-react/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,5 +14,8 @@
     "@babel/parser": "^7.20.7",
     "@babel/traverse": "^7.20.10",
     "@babel/types": "^7.20.7"
+  },
+  "devDependencies": {
+    "@types/babel__traverse": "^7.18.3"
   }
 }
