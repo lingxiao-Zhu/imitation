@@ -3,20 +3,27 @@ import * as t from '@babel/types';
 
 // Page 中的 this.data 要改成 this.state，this.setData 要改成 this.setState
 export default function formatThisExpression(path: NodePath<t.ObjectMethod>): t.BlockStatement {
-  const block: t.Statement[] = [];
+  const blocks: t.Statement[] = [];
   path.traverse({
-    ThisExpression(subPath) {
-      const thisPropertyName = ((subPath.parent as t.MemberExpression)?.property as t.Identifier).name;
-      if (thisPropertyName === 'data') {
-        ((subPath.parent as t.MemberExpression)?.property as t.Identifier).name = 'state';
+    enter(subPath: any) {
+      subPath.traverse({
+        ThisExpression(thisPath) {
+          const thisPropertyName = ((thisPath.parent as t.MemberExpression)?.property as t.Identifier).name;
+          if (thisPropertyName === 'data') {
+            ((thisPath.parent as t.MemberExpression)?.property as t.Identifier).name = 'state';
+          }
+          if (thisPropertyName === 'setData') {
+            ((thisPath.parent as t.MemberExpression)?.property as t.Identifier).name = 'setState';
+          }
+        },
+      });
+      // ObjectMethod -> BlockStatement -> ExpressionStatement
+      if (subPath.parentPath.parent === path.node && t.isStatement(subPath.node)) {
+        blocks.push(subPath?.node);
       }
-      if (thisPropertyName === 'setData') {
-        ((subPath.parent as t.MemberExpression)?.property as t.Identifier).name = 'setState';
-      }
-      // if (t.isStatement(subPath.parentPath.parent)) {
-      //   block.push(subPath.parentPath.parent);
-      // }
     },
   });
-  return t.blockStatement(block);
+
+  // 创建一个 BlockStatement，所以只需要 push ExpressionStatement
+  return t.blockStatement(blocks);
 }
