@@ -26,17 +26,27 @@ function readCode(params: ITransformParams): ICode {
 }
 
 function transformCode(code: ICode, params: ITransformParams) {
+  // collect-data
   const script = scriptIterator(code.scriptCode, params.componentName);
   const template = templateIterator(code.templateCode);
 
-  return reactTemplateBuilder({
+  // react-template
+  const rast = reactTemplateBuilder({
     script,
     template,
   });
+
+  // collect-data + react-template => react-ast
+  const targetAst = reactIterator(rast, app, options);
+  const targetCode = generate(targetAst).code;
+
+  return {
+    code: targetCode,
+  };
 }
 
 function transform(params: ITransformParams) {
-  const code = transformCode(readCode(params), params);
+  return transformCode(readCode(params), params);
 }
 
 transform({
