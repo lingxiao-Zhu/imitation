@@ -1,7 +1,7 @@
 import { parse } from '@babel/parser';
 import traverse, { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
-import { PageCycle } from './constants';
+import { PageCycle } from '../../constants';
 import ScriptVisitor from './scriptVisitor';
 
 export default function scriptIterator(script: string, name: string) {

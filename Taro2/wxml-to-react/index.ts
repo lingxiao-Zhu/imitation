@@ -2,7 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import generate from '@babel/generator';
 
-import scriptIterator from './scriptIterator';
+import scriptIterator from './tools/script/scriptIterator';
+import templateIterator from './tools/template/templateIterator';
+
 import { ICode, ITransformParams } from './types';
 
 function getCode(codePath: string) {
