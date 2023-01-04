@@ -1,3 +1,10 @@
+import { CodePointer } from './pointer';
+
 export default class Lexer {
-  tokenize(text: string) {}
+  pointer: CodePointer;
+  constructor(source: string) {
+    this.pointer = new CodePointer(source);
+  }
+
+  scan(text: string) {}
 }
