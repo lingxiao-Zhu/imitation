@@ -3,7 +3,7 @@ import path from 'path';
 import generate from '@babel/generator';
 
 import scriptIterator from './tools/script/scriptIterator';
-import templateIterator from './tools/template/templateIterator';
+import templateIterator from './tools/template/iterator';
 
 import { ICode, ITransformParams } from './types';
 
