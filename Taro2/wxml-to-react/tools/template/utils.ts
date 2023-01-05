@@ -1,4 +1,13 @@
-export enum TokenType {
+export enum STATES {
+  TEXT,
+  TAG_OPEN,
+  TAG_NAME,
+  ATTRIBUTE_NAME,
+  ATTRIBUTE_VALUE,
+  COMMEN,
+}
+
+export enum TOKEN_TYPES {
   TEXT,
   TAG_OPEN,
   TAG_CLOSE,
