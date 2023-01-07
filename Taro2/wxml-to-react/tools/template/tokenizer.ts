@@ -35,6 +35,7 @@ export default class Tokenizer {
         },
         [ACTIONS.SLASH]() {},
       },
+      [STATES.TAG_NAME]: {},
     };
   }
 
