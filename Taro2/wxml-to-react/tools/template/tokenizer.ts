@@ -18,6 +18,7 @@ export default class Tokenizer {
     const curChar = source[point];
     const nextChar = source[point + 1];
 
+    // 清空 text，表明完成一词法分析，要告诉parser，以便于完成语法分析。
     return {
       [STATES.TEXT]: {
         [ACTIONS.LT]: () => {
@@ -35,16 +36,24 @@ export default class Tokenizer {
           this.text += curChar;
         },
         [ACTIONS.SPACE]: () => {
-          this.finish(STATES.ATTRIBUTE_NAME);
+          this.state = STATES.ATTRIBUTE_NAME;
+          this.text = '';
+        },
+        [ACTIONS.GT]: () => {
+          this.state = STATES.TEXT;
+          this.text = '';
+        },
+      },
+      [STATES.ATTRIBUTE_NAME]: {
+        [ACTIONS.CHAR]: () => {
+          this.text += curChar;
+        },
+        [ACTIONS.EQUAL]: () => {
+          this.state = STATES.ATTRIBUTE_VALUE;
+          this.text = '';
         },
       },
     };
-  }
-
-  finish(nextState: STATES) {
-    // end cur state, tell parser
-    this.text = '';
-    this.state = nextState;
   }
 
   scan(text: string) {

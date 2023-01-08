@@ -41,19 +41,19 @@ export enum CHAR {
 }
 export enum ACTIONS {
   SPACE,
-  LT,
-  GT,
-  QUOTE,
-  EQUAL,
-  SLASH,
-  EXCLAMATION,
-  QUESTION,
+  LT, // `<`
+  GT, // `>`
+  QUOTE, // `"`
+  EQUAL, // `=`
+  SLASH, // `/`
+  EXCLAMATION, // `!`
+  QUESTION, // ?
   CHAR,
   MINUS,
-  BACK_SLASH,
+  BACK_SLASH, // `\`
   // start of mustache
-  BRACE_LEFT,
-  BRACE_RIGHT,
+  BRACE_LEFT, // `{`
+  BRACE_RIGHT, // `}`
   // end of mustache
 }
 
