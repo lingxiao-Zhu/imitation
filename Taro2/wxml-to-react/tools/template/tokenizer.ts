@@ -26,20 +26,26 @@ export default class Tokenizer {
       },
       [STATES.TAG_OPEN]: {
         [ACTIONS.CHAR]: () => {
+          this.state = STATES.TAG_NAME;
           this.text += curChar;
-          if (nextChar === CHAR.SPACE) {
-            this.text = '';
-            this.state = STATES.ATTRIBUTE_NAME;
-            return this.finish();
-          }
         },
-        [ACTIONS.SLASH]() {},
       },
-      [STATES.TAG_NAME]: {},
+      [STATES.TAG_NAME]: {
+        [ACTIONS.CHAR]: () => {
+          this.text += curChar;
+        },
+        [ACTIONS.SPACE]: () => {
+          this.finish(STATES.ATTRIBUTE_NAME);
+        },
+      },
     };
   }
 
-  finish() {}
+  finish(nextState: STATES) {
+    // end cur state, tell parser
+    this.text = '';
+    this.state = nextState;
+  }
 
   scan(text: string) {
     const char = text[this.point] as CHAR;
