@@ -86,8 +86,8 @@ export default class Tokenizer {
     };
   }
 
-  scan(text: string) {
-    const char = text[this.point] as CHAR;
+  scan() {
+    const char = this.source[this.point] as CHAR;
     const action = CHAR_TO_ACTIONS[char] || ACTIONS.CHAR;
     return this.stateMachine[this.state][action]();
   }
