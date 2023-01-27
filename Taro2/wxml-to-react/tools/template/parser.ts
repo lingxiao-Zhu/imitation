@@ -21,7 +21,7 @@ export default class Parser {
 
   static parse(code: string) {
     const parser = new Parser(code);
-    let chat = parser.scanner.scan();
+    parser.scanner.scan();
     // parser.parse();
     // return {
     //   root: parser.root,
