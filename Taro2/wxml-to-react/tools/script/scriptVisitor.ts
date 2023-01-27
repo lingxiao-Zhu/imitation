@@ -1,8 +1,8 @@
 import { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
-import { PageCycle } from './constants';
-import { Script } from './types';
-import formatThisExpression from './utils/formatThis';
+import { PageCycle } from '../../constants';
+import { Script } from '../../types';
+import formatThisExpression from '../../utils/formatThis';
 
 export default class ScriptVisitor {
   script: Script;
